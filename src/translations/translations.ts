@@ -1,6 +1,6 @@
 export class Translations {
     static global = {
-        name: 'Raider IO',
+        name: 'Frontend Notifier',
     };
 
     static header = {

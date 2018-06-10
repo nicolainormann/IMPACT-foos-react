@@ -1,5 +1,5 @@
 {
-    "name": "raiderio",
+    "name": "frontend-notifier",
     "version": "1.0.0",
     "description": "",
     "main": "",
@@ -8,14 +8,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nicolainormann/raiderio.git"
+        "url": "git+https://github.com/nicolainormann/frontend-notifier.git"
     },
     "author": "nicolainormann",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/nicolainormann/raiderio/issues"
+        "url": "https://github.com/nicolainormann/frontend-notifier/issues"
     },
-    "homepage": "https://github.com/nicolainormann/raiderio#readme",
+    "homepage": "https://github.com/nicolainormann/frontend-notifier#readme",
     "dependencies": {
         "@types/react": "^16.3.17",
         "@types/react-dom": "^16.0.6",
