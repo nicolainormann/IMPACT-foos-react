@@ -1,4 +1,10 @@
-.app {
-    background-color: black;
-    color: white;
+@import "variables";
+@import "header";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: $alt-color;
 }
