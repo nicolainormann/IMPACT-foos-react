@@ -1,10 +1,17 @@
-import * as React from 'react';
+import { Component, h } from 'preact';
 import { Translations } from '../../translations/translations';
 
-export class Header extends React.Component {
+export class Header extends Component {
+    componentDidMount() {
+        this.getStuff();
+    }
+
+    getStuff() {
+    }
+
     render() {
         const header = (
-            <header className='header'>
+            <header class='header'>
                 {Translations.global.name}
             </header>
         );
