@@ -1,0 +1,21 @@
+@import "variables";
+@import "mixins";
+@import "app";
+@import "header";
+@import "navigation";
+@import "router-outlet";
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: $alt-color;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
