@@ -1,5 +1,5 @@
 {
-    "name": "frontend-notifier",
+    "name": "IMPACT-foos",
     "version": "1.0.0",
     "description": "",
     "main": "",
@@ -8,14 +8,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nicolainormann/frontend-notifier.git"
+        "url": "git+https://github.com/nicolainormann/IMPACT-foos.git"
     },
     "author": "nicolainormann",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/nicolainormann/frontend-notifier/issues"
+        "url": "https://github.com/nicolainormann/IMPACT-foos/issues"
     },
-    "homepage": "https://github.com/nicolainormann/frontend-notifier#readme",
+    "homepage": "https://github.com/nicolainormann/IMPACT-foos#readme",
     "dependencies": {
         "preact": "^8.2.9",
         "preact-router": "^2.6.1"
