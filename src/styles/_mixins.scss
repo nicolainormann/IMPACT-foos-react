@@ -1,0 +1,11 @@
+$device-bps: ( 'mobile': (max-width: 567px),
+'tablet': '(min-width: 568px) and (max-width: 1024px)',
+'desktop': (min-width: 1025px));
+
+@mixin respond-to($devices...) {
+    @each $device in $devices {
+        @media #{map-get($device-bps, $device)} {
+            @content;
+        }
+    }
+}

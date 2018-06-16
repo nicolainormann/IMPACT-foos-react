@@ -1,6 +1,6 @@
-import { h, render } from 'preact';
-import { App } from './app/app';
+import { h, render } from "preact";
+import { App } from "./app/app";
 
-import './styles/_app.scss';
+import "./styles/_app.scss";
 
-render(<App />, document.getElementById('root')!);
+render(<App />, document.body);

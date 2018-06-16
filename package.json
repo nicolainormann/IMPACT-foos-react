@@ -17,7 +17,8 @@
     },
     "homepage": "https://github.com/nicolainormann/frontend-notifier#readme",
     "dependencies": {
-        "preact": "^8.2.9"
+        "preact": "^8.2.9",
+        "preact-router": "^2.6.1"
     },
     "devDependencies": {
         "awesome-typescript-loader": "^5.0.0",

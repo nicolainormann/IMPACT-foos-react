@@ -1,6 +1,7 @@
 {
     "extends": ["tslint:latest", "tslint-react"],
     "rules": {
+        "trailing-comma": false,
         "arrow-return-shorthand": true,
         "arrow-parens": false,
         "callable-types": true,
@@ -75,7 +76,6 @@
         "prefer-const": true,
         "quotemark": [
             true,
-            "single",
             "avoid-template",
             "avoid-escape"
         ],
@@ -102,7 +102,8 @@
             true,
             "ban-keywords",
             "check-format",
-            "allow-leading-underscore"
+            "allow-leading-underscore",
+            "allow-pascal-case"
         ],
         "whitespace": [
             true,
@@ -157,7 +158,7 @@
             "members"
         ],
         "jsx-alignment": true,
-        "jsx-boolean-value": true,
+        "jsx-boolean-value": false,
         "jsx-curly-spacing": [true, "never"],
         "jsx-equals-spacing": [true, "never"],
         "jsx-key": true,
