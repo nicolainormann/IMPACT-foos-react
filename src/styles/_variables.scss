@@ -1,4 +1,11 @@
-$primary-color: #000;
-$alt-color: #FFF;
+$primary-color: #feff00;
+$alt-color: #303030;
 
-$spacing: 15px;
+$text-color: #303030;
+$alt-text-color: #ffffff;
+
+$spacing-small: 5px;
+$spacing-medium: $spacing-small * 2;
+$spacing-large: $spacing-small * 3;
+
+$header-height: 24px+$spacing-medium * 2;

@@ -1,11 +1,11 @@
-@import "variables";
-@import "header";
-@import "navigation";
+.app {
+    --navigation-width: 60px;
+    @include respond-to(tablet, desktop) {
+        --navigation-width: 200px;
+    }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
-
-body {
-    margin: 0;
-    font-family: "Roboto", sans-serif;
-    color: $alt-color;
+    margin-top: $header-height;
+    display: grid;
+    grid-template-columns: var(--navigation-width) 1fr;
+    grid-template-areas: "navigation router-outlet";
 }

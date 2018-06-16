@@ -4,8 +4,8 @@ export class Translations {
     };
 
     static routes = {
-        submit: {
-            title: "Submit match",
+        addMatch: {
+            title: "Add match",
             url: "/"
         },
         standing: {
@@ -15,6 +15,6 @@ export class Translations {
     };
 
     static header = {
-
+        logoText: "foos"
     };
 }

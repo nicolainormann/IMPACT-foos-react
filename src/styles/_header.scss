@@ -1,9 +1,35 @@
-@import "variables";
-
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: $primary-color;
+    background-color: $alt-color;
+    color: $alt-text-color;
+    padding: $spacing-medium 0;
+    display: grid;
+    grid-template-columns: 1fr 160px 1fr;
+    grid-template-areas: "left logo right";
+
+    &__logo {
+        --color: #{$alt-text-color};
+        &:hover {
+            --color: #{$primary-color};
+        }
+
+        grid-area: logo;
+        display: flex;
+        align-items: flex-end;
+
+        &-svg {
+            fill: var(--color);
+            width: 160px;
+            height: 24px;
+            margin-right: $spacing-small;
+        }
+
+        &-text {
+            color: var(--color);
+            user-select: none;
+        }
+    }
 }
