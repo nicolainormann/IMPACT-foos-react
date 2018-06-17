@@ -1,5 +1,5 @@
 import { Component, h } from "preact";
-import { Link } from "preact-router";
+import { Link } from "preact-router/match";
 import { Translations } from "../../translations/translations";
 
 export class Navigation extends Component {
