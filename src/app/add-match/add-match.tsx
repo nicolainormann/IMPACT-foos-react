@@ -1,9 +1,9 @@
 import { Component, h } from "preact";
 import { AddMatchTeam } from "./add-match-team";
-import { IPlayer } from "./add-match.model";
+import { IAddMatchTeamModel, IPlayer } from "./add-match.model";
 
 export class AddMatch extends Component {
-    availablePlayers: IPlayer[] = [
+    players: IPlayer[] = [
         {
             name: "Nicolai",
             username: "nnh"
@@ -22,11 +22,20 @@ export class AddMatch extends Component {
         }
     ];
 
+    availablePlayers: IPlayer[] = this.players;
+
+    teamChange = (addMatchTeam: IAddMatchTeamModel) => {
+        console.log(addMatchTeam.players);
+        // this.availablePlayers = this.players
+        //     .filter(player => console);
+        // console.log(this.availablePlayers);
+    }
+
     render() {
         const addMatch = (
             <div class="add-match">
-                <AddMatchTeam players={this.availablePlayers} />
-                <AddMatchTeam players={this.availablePlayers} />
+                <AddMatchTeam team={0} players={this.availablePlayers} onTeamChange={this.teamChange} />
+                <AddMatchTeam team={1} players={this.availablePlayers} onTeamChange={this.teamChange} />
             </div>
         );
 

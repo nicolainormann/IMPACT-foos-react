@@ -17,4 +17,10 @@ export class Translations {
     static header = {
         logoText: "foos"
     };
+
+    static addMatch = {
+        player: {
+            selectPlaceholder: "Choose player"
+        }
+    };
 }

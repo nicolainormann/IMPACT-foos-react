@@ -1,6 +1,7 @@
 {
     "extends": ["tslint:latest", "tslint-react"],
     "rules": {
+        "radix": false,
         "no-submodule-imports": false,
         "trailing-comma": false,
         "arrow-return-shorthand": true,
