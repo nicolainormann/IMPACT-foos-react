@@ -1,6 +1,6 @@
 import { Component, h } from "preact";
 import { AddMatchTeam } from "./add-match-team";
-import { IAddMatchTeamModel, IPlayer } from "./add-match.model";
+import { IAddMatchModel, IAddMatchTeamModel, IPlayer } from "./add-match.model";
 
 export class AddMatch extends Component {
     players: IPlayer[] = [
@@ -22,20 +22,39 @@ export class AddMatch extends Component {
         }
     ];
 
-    availablePlayers: IPlayer[] = this.players;
+    state = {
+        availablePlayers: this.players
+    };
+
+    match: IAddMatchModel = {
+        teams: [
+            {
+                team: 0,
+                players: [],
+                score: 0
+            },
+            {
+                team: 1,
+                players: [],
+                score: 0
+            }
+        ]
+    };
 
     teamChange = (addMatchTeam: IAddMatchTeamModel) => {
-        console.log(addMatchTeam.players);
-        // this.availablePlayers = this.players
-        //     .filter(player => console);
-        // console.log(this.availablePlayers);
+        this.match.teams[addMatchTeam.team] = addMatchTeam;
+        // console.log(this.match.teams.flatMap(team => team.players.flatMap(player => player.username)));
+        // this.setState({
+        // availablePlayers: this.match.teams.map(team => team.players.map(player => player.username))
+        // });
+        console.log(this.match);
     }
 
     render() {
         const addMatch = (
             <div class="add-match">
-                <AddMatchTeam team={0} players={this.availablePlayers} onTeamChange={this.teamChange} />
-                <AddMatchTeam team={1} players={this.availablePlayers} onTeamChange={this.teamChange} />
+                <AddMatchTeam team={0} players={this.state.availablePlayers} onTeamChange={this.teamChange} />
+                <AddMatchTeam team={1} players={this.state.availablePlayers} onTeamChange={this.teamChange} />
             </div>
         );
 

@@ -5,6 +5,13 @@ export interface IPlayer {
     username: string;
 }
 
+//#region AddMatch
+export interface IAddMatchModel {
+    teams: IAddMatchTeamModel[];
+}
+//#endregion
+
+//#region AddMatchTeam
 export interface IAddMatchTeamProps {
     players: IPlayer[];
     team: number;
@@ -14,18 +21,16 @@ export interface IAddMatchTeamProps {
 export interface IAddMatchTeamModel {
     team: number;
     score: number;
-    players: {
-        [key: number]: IAddMatchPlayerModel;
-    };
+    players: IAddMatchPlayerModel[];
 }
 
 export interface IAddMatchTeamStateModel {
     score: string;
-    players: {
-        [key: number]: IAddMatchPlayerModel;
-    };
+    players: IAddMatchPlayerModel[];
 }
+//#endregion
 
+//#region AddMatchPlayer
 export interface IAddMatchPlayerProps {
     players: IPlayer[];
     position: number;
@@ -36,3 +41,4 @@ export interface IAddMatchPlayerModel {
     position: number;
     username: string;
 }
+//#endregion

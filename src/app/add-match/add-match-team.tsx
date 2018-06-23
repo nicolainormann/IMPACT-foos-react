@@ -5,7 +5,16 @@ import { IAddMatchPlayerModel, IAddMatchTeamProps, IAddMatchTeamStateModel } fro
 export class AddMatchTeam extends Component<IAddMatchTeamProps, any> {
     state: IAddMatchTeamStateModel = {
         score: "",
-        players: {}
+        players: [
+            {
+                position: 0,
+                username: ""
+            },
+            {
+                position: 1,
+                username: ""
+            }
+        ]
     };
 
     teamChange() {
