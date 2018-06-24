@@ -9,6 +9,11 @@ export interface IPlayer {
 export interface IAddMatchModel {
     teams: IAddMatchTeamModel[];
 }
+
+export interface IAddMatchStateModel {
+    availablePlayers: IPlayer[];
+    match: IAddMatchModel;
+}
 //#endregion
 
 //#region AddMatchTeam

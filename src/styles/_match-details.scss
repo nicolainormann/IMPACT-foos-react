@@ -1,0 +1,7 @@
+.match-details {
+    display: grid;
+    grid-template-columns: "1fr 1fr";
+    grid-template-areas: "left right";
+    border: 3px solid $alt-color;
+    padding: $spacing-medium;
+}

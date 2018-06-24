@@ -1,0 +1,16 @@
+.match-details-team {
+    display: grid;
+    grid-template-areas: "top top" "middle-left middle-right" "bottom bottom";
+
+    &__team {
+        grid-area: top;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    &__score {
+        grid-area: bottom;
+        text-align: center;
+    }
+}

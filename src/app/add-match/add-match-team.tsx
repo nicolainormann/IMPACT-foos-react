@@ -21,7 +21,7 @@ export class AddMatchTeam extends Component<IAddMatchTeamProps, any> {
         this.props.onTeamChange({
             team: this.props.team,
             players: this.state.players,
-            score: parseInt(this.state.score)
+            score: parseInt(this.state.score) ? parseInt(this.state.score) : 0
         });
     }
 

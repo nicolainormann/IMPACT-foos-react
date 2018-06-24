@@ -1,6 +1,7 @@
 import { Component, h } from "preact";
+import { MatchDetails } from "../match-details/match-details";
 import { AddMatchTeam } from "./add-match-team";
-import { IAddMatchModel, IAddMatchTeamModel, IPlayer } from "./add-match.model";
+import { IAddMatchModel, IAddMatchStateModel, IAddMatchTeamModel, IPlayer } from "./add-match.model";
 
 export class AddMatch extends Component {
     players: IPlayer[] = [
@@ -22,37 +23,46 @@ export class AddMatch extends Component {
         }
     ];
 
-    state = {
-        availablePlayers: this.players
-    };
-
-    match: IAddMatchModel = {
-        teams: [
-            {
-                team: 0,
-                players: [],
-                score: 0
-            },
-            {
-                team: 1,
-                players: [],
-                score: 0
-            }
-        ]
+    state: IAddMatchStateModel = {
+        match: {
+            teams: [
+                {
+                    team: 0,
+                    players: [
+                        { position: 0, username: "" },
+                        { position: 1, username: "" }
+                    ],
+                    score: 0
+                },
+                {
+                    team: 1,
+                    players: [
+                        { position: 0, username: "" },
+                        { position: 1, username: "" }
+                    ],
+                    score: 0
+                }
+            ]
+        },
+        availablePlayers: this.players,
     };
 
     teamChange = (addMatchTeam: IAddMatchTeamModel) => {
-        this.match.teams[addMatchTeam.team] = addMatchTeam;
-        // console.log(this.match.teams.flatMap(team => team.players.flatMap(player => player.username)));
-        // this.setState({
-        // availablePlayers: this.match.teams.map(team => team.players.map(player => player.username))
-        // });
-        console.log(this.match);
+        const match = this.state.match;
+        match.teams[addMatchTeam.team] = addMatchTeam;
+        const availablePlayers = this.players.filter(player => !this.state.match.teams.map(team => team.players.map(matchPlayer => matchPlayer.username)).reduce((acc, val) => acc.concat(val), []).includes(player.username));
+
+        this.setState({
+            availablePlayers,
+            match
+        });
     }
 
     render() {
         const addMatch = (
             <div class="add-match">
+                <MatchDetails match={this.state.match} />
+
                 <AddMatchTeam team={0} players={this.state.availablePlayers} onTeamChange={this.teamChange} />
                 <AddMatchTeam team={1} players={this.state.availablePlayers} onTeamChange={this.teamChange} />
             </div>
