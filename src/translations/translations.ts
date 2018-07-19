@@ -18,19 +18,14 @@ export class Translations {
         logoText: "foos"
     };
 
-    static addMatch = {
-        player: {
-            selectPlaceholder: "Choose player"
-        }
-    };
-
-    static matchDetails = {
+    static match = {
         team: {
             team: "Team {0}",
             score: "Score {0}"
         },
         player: {
-            player: "Player"
+            player: "Player",
+            selectPlaceholder: "Choose player"
         }
     };
 

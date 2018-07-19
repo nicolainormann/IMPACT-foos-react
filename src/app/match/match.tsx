@@ -1,9 +1,8 @@
 import { Component, h } from "preact";
-import { MatchDetails } from "../match-details/match-details";
-import { AddMatchTeam } from "./add-match-team";
-import { IAddMatchModel, IAddMatchStateModel, IAddMatchTeamModel, IPlayer } from "./add-match.model";
+import { MatchTeam } from "./match-team";
+import { IMatchStateModel, IMatchTeamModel, IPlayer } from "./match.model";
 
-export class AddMatch extends Component {
+export class Match extends Component {
     players: IPlayer[] = [
         {
             name: "Nicolai",
@@ -23,22 +22,22 @@ export class AddMatch extends Component {
         }
     ];
 
-    state: IAddMatchStateModel = {
+    state: IMatchStateModel = {
         match: {
             teams: [
                 {
                     team: 0,
                     players: [
-                        { position: 0, username: "" },
-                        { position: 1, username: "" }
+                        { position: 0, name: "", username: "" },
+                        { position: 1, name: "", username: "" }
                     ],
                     score: 0
                 },
                 {
                     team: 1,
                     players: [
-                        { position: 0, username: "" },
-                        { position: 1, username: "" }
+                        { position: 0, name: "", username: "" },
+                        { position: 1, name: "", username: "" }
                     ],
                     score: 0
                 }
@@ -47,7 +46,7 @@ export class AddMatch extends Component {
         availablePlayers: this.players,
     };
 
-    teamChange = (addMatchTeam: IAddMatchTeamModel) => {
+    teamChange = (addMatchTeam: IMatchTeamModel) => {
         const match = this.state.match;
         match.teams[addMatchTeam.team] = addMatchTeam;
         const availablePlayers = this.players.filter(player => !this.state.match.teams.map(team => team.players.map(matchPlayer => matchPlayer.username)).reduce((acc, val) => acc.concat(val), []).includes(player.username));
@@ -59,15 +58,12 @@ export class AddMatch extends Component {
     }
 
     render() {
-        const addMatch = (
-            <div class="add-match">
-                <MatchDetails match={this.state.match} />
-
-                <AddMatchTeam team={0} players={this.state.availablePlayers} onTeamChange={this.teamChange} />
-                <AddMatchTeam team={1} players={this.state.availablePlayers} onTeamChange={this.teamChange} />
+        const match = (
+            <div class="match">
+                {this.state.match.teams.map(team => <MatchTeam key={team.team} team={team} players={this.state.availablePlayers} onTeamChange={this.teamChange} />)}
             </div>
         );
 
-        return addMatch;
+        return match;
     }
 }

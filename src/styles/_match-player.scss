@@ -1,10 +1,10 @@
-.match-details-player {
+.match-player {
     text-align: center;
 
-    &__frame {
+    &__select {
+        display: block;
         height: 50px;
-        width: 50px;
-        line-height: 50px;
+        width: 200px;
         margin: $spacing-medium auto;
         border: 3px solid $alt-color;
         text-align: center;

@@ -3,9 +3,9 @@
 @import "app";
 @import "header";
 @import "navigation";
-@import "match-details";
-@import "match-details-team";
-@import "match-details-player";
+@import "match";
+@import "match-team";
+@import "match-player";
 @import "router-outlet";
 
 html {
