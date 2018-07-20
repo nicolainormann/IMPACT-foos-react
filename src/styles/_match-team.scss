@@ -12,5 +12,11 @@
     &__score {
         grid-area: bottom;
         text-align: center;
+
+        &-input {
+            height: 50px;
+            width: 50px;
+            margin: $spacing-medium auto;
+        }
     }
 }

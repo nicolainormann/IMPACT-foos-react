@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/nicolainormann/IMPACT-foos#readme",
     "dependencies": {
+        "firebase": "^5.3.0",
         "preact": "^8.2.9",
         "preact-router": "^2.6.1"
     },

@@ -2,11 +2,8 @@
     text-align: center;
 
     &__select {
-        display: block;
         height: 50px;
         width: 200px;
         margin: $spacing-medium auto;
-        border: 3px solid $alt-color;
-        text-align: center;
     }
 }

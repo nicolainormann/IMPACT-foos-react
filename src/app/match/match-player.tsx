@@ -15,8 +15,8 @@ export class MatchPlayer extends Component<IMatchPlayerProps, any> {
     render() {
         const matchPlayer = (
             <div class="match-player">
-                {Translations.match.player.player}
-                <select class="match-player__select" onChange={this.addPlayer}>
+                {Translations.match.player.position[this.props.player.position]}
+                <select class="match-player__select input" onChange={this.addPlayer} required>
                     <option value="" disabled hidden selected>{Translations.match.player.selectPlaceholder}</option>
                     {this.props.player.username && <option key={this.props.player.username} value={this.props.player.username}>{this.props.player.name}</option>}
                     {this.props.players.map(player => <option key={player.username} value={player.username}>{player.name}</option>)}

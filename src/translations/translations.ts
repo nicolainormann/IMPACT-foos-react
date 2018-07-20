@@ -21,10 +21,10 @@ export class Translations {
     static match = {
         team: {
             team: "Team {0}",
-            score: "Score {0}"
+            score: "Score"
         },
         player: {
-            player: "Player",
+            position: ["Defense", "Offense"],
             selectPlaceholder: "Choose player"
         }
     };

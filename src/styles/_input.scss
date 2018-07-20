@@ -1,0 +1,25 @@
+.input {
+    --border-color: #{$alt-color};
+
+    display: block;
+    border: 3px solid var(--border-color);
+    text-align: center;
+
+    &:invalid {
+        box-shadow: none;
+    }
+
+    option {
+        color: $text-color;
+    }
+}
+
+select.input {
+    &:invalid {
+        color: rgba($text-color, 0.7);
+    }
+
+    option {
+        color: $text-color;
+    }
+}

@@ -1,26 +1,10 @@
 import { Component, h } from "preact";
+import { PlayersApi } from "../api/players.api";
 import { MatchTeam } from "./match-team";
 import { IMatchStateModel, IMatchTeamModel, IPlayer } from "./match.model";
 
 export class Match extends Component {
-    players: IPlayer[] = [
-        {
-            name: "Nicolai",
-            username: "nnh"
-        },
-        {
-            name: "Peter",
-            username: "pvn"
-        },
-        {
-            name: "Filip",
-            username: "fbb"
-        },
-        {
-            name: "Hartøft",
-            username: "cha"
-        }
-    ];
+    players: IPlayer[] = [];
 
     state: IMatchStateModel = {
         match: {
@@ -46,6 +30,15 @@ export class Match extends Component {
         availablePlayers: this.players,
     };
 
+    componentDidMount() {
+        PlayersApi.getPlayers().then(players => {
+            this.players = players;
+            this.setState({
+                availablePlayers: this.players
+            });
+        });
+    }
+
     teamChange = (addMatchTeam: IMatchTeamModel) => {
         const match = this.state.match;
         match.teams[addMatchTeam.team] = addMatchTeam;
@@ -60,7 +53,7 @@ export class Match extends Component {
     render() {
         const match = (
             <div class="match">
-                {this.state.match.teams.map(team => <MatchTeam key={team.team} team={team} players={this.state.availablePlayers} onTeamChange={this.teamChange} />)}
+                {!!this.state.availablePlayers.length && this.state.match.teams.map(team => <MatchTeam key={team.team} team={team} players={this.state.availablePlayers} onTeamChange={this.teamChange} />)}
             </div>
         );
 
