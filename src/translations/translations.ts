@@ -11,11 +11,22 @@ export class Translations {
         standing: {
             title: "Standing",
             url: "/standing"
+        },
+        logout: {
+            title: "Logout"
         }
     };
 
     static header = {
         logoText: "foos"
+    };
+
+    static login = {
+        email: "Email",
+        password: "Password",
+        confirmPassword: "Confirm password",
+        createUser: "Create user",
+        login: "Login"
     };
 
     static match = {

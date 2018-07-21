@@ -27,15 +27,13 @@ export class Match extends Component {
                 }
             ]
         },
-        availablePlayers: this.players,
+        availablePlayers: this.players
     };
 
     componentDidMount() {
         PlayersApi.getPlayers().then(players => {
             this.players = players;
-            this.setState({
-                availablePlayers: this.players
-            });
+            this.setState({ availablePlayers: this.players });
         });
     }
 
@@ -53,7 +51,7 @@ export class Match extends Component {
     render() {
         const match = (
             <div class="match">
-                {!!this.state.availablePlayers.length && this.state.match.teams.map(team => <MatchTeam key={team.team} team={team} players={this.state.availablePlayers} onTeamChange={this.teamChange} />)}
+                {!!this.players.length && this.state.match.teams.map(team => <MatchTeam key={team.team} team={team} players={this.state.availablePlayers} onTeamChange={this.teamChange} />)}
             </div>
         );
 

@@ -18,14 +18,14 @@
         &:hover,
         &_active {
             --text-color: #{$primary-color};
-
-            background-color: lighten($alt-color, 5%);
+            --background-color: lighten($alt-color, 5%);
         }
 
         display: flex;
         align-items: center;
         padding: var(--padding);
         background-color: var(--background-color);
+        width: 100%;
 
         &-svg {
             width: var(--svg-size);

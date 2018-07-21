@@ -1,11 +1,14 @@
 .app {
-    --navigation-width: 60px;
-    @include respond-to(tablet, desktop) {
-        --navigation-width: 200px;
-    }
-
     margin-top: $header-height;
-    display: grid;
-    grid-template-columns: var(--navigation-width) 1fr;
-    grid-template-areas: "navigation router-outlet";
+
+    &__container {
+        --navigation-width: 60px;
+        @include respond-to(tablet, desktop) {
+            --navigation-width: 200px;
+        }
+
+        display: grid;
+        grid-template-columns: var(--navigation-width) 1fr;
+        grid-template-areas: "navigation router-outlet";
+    }
 }

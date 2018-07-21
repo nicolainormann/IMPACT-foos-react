@@ -2,6 +2,7 @@
 @import "mixins";
 @import "input";
 @import "app";
+@import "login";
 @import "header";
 @import "navigation";
 @import "match";
@@ -9,17 +10,24 @@
 @import "match-player";
 @import "router-outlet";
 
-html {
+* {
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
 }
 
 body {
     margin: 0;
-    font-family: "Roboto", sans-serif;
     color: $alt-color;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button,
+[type="submit"] {
+    border: none;
+    cursor: pointer;
 }

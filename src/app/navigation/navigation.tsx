@@ -1,8 +1,13 @@
 import { Component, h } from "preact";
 import { Link } from "preact-router/match";
 import { Translations } from "../../translations/translations";
+import { auth } from "../firebase/firebase";
 
 export class Navigation extends Component {
+    logout = () => {
+        auth.signOut();
+    }
+
     render() {
         const navigation = (
             <nav class="navigation">
@@ -23,6 +28,17 @@ export class Navigation extends Component {
                         {Translations.routes.standing.title}
                     </div>
                 </Link>
+
+                <button class="navigation__link navigation__link_bottom" onClick={this.logout}>
+                    <svg class="navigation__link-svg" viewBox="0 0 74 90">
+                        <g transform="translate(0,-952.36218)">
+                            <path d="M37,952.4c-14.4,0-26,11.7-26,26.1v7.9H3c-0.1,0-0.2,0-0.3,0c-1.5,0.2-2.7,1.5-2.7,3v50c0,1.7,1.3,3,3,3h68 c1.7,0,3-1.3,3-3v-50c0-1.7-1.3-3-3-3h-8v-7.9C63,964.1,51.4,952.4,37,952.4z M37,958.4c11.1,0,20,8.9,20,20.1v7.9H17v-7.9 C17,967.3,25.9,958.4,37,958.4z M6,992.4h62v44H6V992.4z M37,1000.4c-6,0-11,5-11,11c0,2.9,1.2,5.6,3,7.5l-2.7,5 c-0.8,1.5-0.3,3.3,1.2,4.1c0.4,0.2,1,0.4,1.5,0.4h16c1.7,0,3-1.3,3-3c0-0.5-0.1-1-0.4-1.5l-2.7-5c1.9-2,3-4.6,3-7.5 C48,1005.3,43,1000.4,37,1000.4z M37,1006.4c2.8,0,5,2.2,5,5c0,1.8-1,3.4-2.4,4.3c-1.4,0.8-1.8,2.6-1.1,4l1.5,2.8h-6l1.5-2.8 c0.7-1.4,0.3-3.1-1.1-4c-1.5-0.9-2.4-2.4-2.4-4.3C32,1008.6,34.2,1006.4,37,1006.4z" />
+                        </g>
+                    </svg>
+                    <div class="navigation__link-text">
+                        {Translations.routes.logout.title}
+                    </div>
+                </button>
             </nav>
         );
 

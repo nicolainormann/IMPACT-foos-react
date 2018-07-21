@@ -1,4 +1,4 @@
-export type ICallback<T> = (T: T) => void;
+import { ICallback } from "../global/callback";
 
 export interface IPlayer {
     name: string;

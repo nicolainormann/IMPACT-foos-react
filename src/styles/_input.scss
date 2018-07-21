@@ -1,9 +1,12 @@
+$input-height: 50px;
+
 .input {
-    --border-color: #{$alt-color};
+    --border-color: #{lighten($alt-color, 10%)};
 
     display: block;
     border: 3px solid var(--border-color);
     text-align: center;
+    height: $input-height;
 
     &:invalid {
         box-shadow: none;
@@ -11,6 +14,22 @@
 
     option {
         color: $text-color;
+    }
+}
+
+.button {
+    --background-color: #{lighten($alt-color, 10%)};
+    --text-color: #{$alt-text-color};
+
+    padding: 0 $spacing-medium;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: $input-height;
+    min-width: 100px;
+
+    &:hover {
+        --text-color: #{$primary-color};
+        --background-color: #{lighten($alt-color, 5%)};
     }
 }
 
