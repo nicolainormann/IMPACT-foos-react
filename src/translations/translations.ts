@@ -21,7 +21,7 @@ export class Translations {
         logoText: "foos"
     };
 
-    static login = {
+    static auth = {
         email: "Email",
         password: "Password",
         confirmPassword: "Confirm password",

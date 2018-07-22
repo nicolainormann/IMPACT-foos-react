@@ -1,9 +1,9 @@
 import { Component, h } from "preact";
 import { Translations } from "../../translations/translations";
-import { ILoginModel, ILoginProps } from "./login.model";
+import { IAuthModel, IAuthProps } from "./auth.model";
 
-export class LoginForm extends Component<ILoginProps, any> {
-    state: ILoginModel = {
+export class AuthLogin extends Component<IAuthProps, any> {
+    state: IAuthModel = {
         email: "",
         password: ""
     };
@@ -16,7 +16,7 @@ export class LoginForm extends Component<ILoginProps, any> {
             this.setState({ [name]: value });
 
             if (!!this.state.email && !!this.state.password) {
-                this.props.onLoginChange({
+                this.props.onAuthChange({
                     email: this.state.email,
                     password: this.state.password
                 });
@@ -25,13 +25,13 @@ export class LoginForm extends Component<ILoginProps, any> {
     }
 
     render() {
-        const loginForm = (
-            <div class="login-form">
-                <input class="login__input input" onInput={this.onInput} type="email" name="email" placeholder={Translations.login.email} required />
-                <input class="login__input input" onInput={this.onInput} type="password" name="password" placeholder={Translations.login.password} required minLength={6} />
+        const authLogin = (
+            <div class="auth-login">
+                <input class="auth__input input" onInput={this.onInput} type="email" name="email" placeholder={Translations.auth.email} required />
+                <input class="auth__input input" onInput={this.onInput} type="password" name="password" placeholder={Translations.auth.password} required minLength={6} />
             </div>
         );
 
-        return loginForm;
+        return authLogin;
     }
 }

@@ -1,11 +1,11 @@
 import { Component, h } from "preact";
 import { Link } from "preact-router/match";
 import { Translations } from "../../translations/translations";
-import { auth } from "../firebase/firebase";
+import { AuthApi } from "../api/auth.api";
 
 export class Navigation extends Component {
     logout = () => {
-        auth.signOut();
+        AuthApi.logout();
     }
 
     render() {

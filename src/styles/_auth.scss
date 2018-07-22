@@ -1,12 +1,16 @@
-.login {
+.auth {
     display: flex;
     justify-content: center;
     align-items: center;
     height: calc(100vh - #{$header-height});
 
     &__container {
-        width: 20%;
-        height: 20%;
+        --min-width: 500px;
+        @include respond-to(mobile) {
+            --min-width: 80%;
+        }
+
+        min-width: var(--min-width);
     }
 
     &__input {

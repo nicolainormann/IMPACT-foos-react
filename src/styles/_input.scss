@@ -20,16 +20,32 @@ $input-height: 50px;
 .button {
     --background-color: #{lighten($alt-color, 10%)};
     --text-color: #{$alt-text-color};
+    --padding: 0 #{$spacing-medium};
+    --min-width: 100px;
 
-    padding: 0 $spacing-medium;
+    padding: var(--padding);
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: $input-height;
-    min-width: 100px;
+    min-width: var(--min-width);
 
     &:hover {
         --text-color: #{$primary-color};
         --background-color: #{lighten($alt-color, 5%)};
+    }
+
+    &_link {
+        --text-color: #{$text-color};
+        --background-color: transparent;
+        --padding: 0;
+        --min-width: auto;
+
+        &:hover {
+            --text-color: #{$text-color};
+            --background-color: transparent;
+
+            text-decoration: underline;
+        }
     }
 }
 
