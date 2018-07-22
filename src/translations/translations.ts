@@ -26,7 +26,10 @@ export class Translations {
         password: "Password",
         confirmPassword: "Confirm password",
         createUser: "Create user",
-        login: "Login"
+        login: "Login",
+        displayName: "Display name",
+        photoURL: "Image link",
+        createPlayer: "Create player"
     };
 
     static match = {
