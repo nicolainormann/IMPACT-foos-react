@@ -1,5 +1,8 @@
 .app {
     margin-top: $header-height;
+    min-height: calc(100vh - #{$header-height});
+    display: flex;
+    flex-direction: column;
 
     &__container {
         --navigation-width: 60px;
@@ -10,5 +13,26 @@
         display: grid;
         grid-template-columns: var(--navigation-width) 1fr;
         grid-template-areas: "navigation router-outlet";
+    }
+
+    &__center {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $spacing-medium;
+
+        @include respond-to(mobile) {
+            --height: auto;
+        }
+
+        &-container {
+            --width: 500px;
+            @include respond-to(mobile) {
+                --width: 80%;
+            }
+
+            width: var(--width);
+        }
     }
 }

@@ -1,6 +1,8 @@
 import { fireAuth } from "../firebase/firebase";
 
 export class AuthApi {
+    static currentUser = fireAuth.currentUser;
+
     static auth$(nextOrObserver: firebase.Observer<any> | ((a: firebase.User | null) => any)) {
         return fireAuth.onAuthStateChanged(nextOrObserver);
     }
@@ -15,5 +17,9 @@ export class AuthApi {
 
     static createUser(email: string, password: string) {
         return fireAuth.createUserWithEmailAndPassword(email, password);
+    }
+
+    static updateCurrentProfile(profile: { displayName: string | null; photoURL: string | null; }) {
+        return fireAuth.currentUser!.updateProfile(profile);
     }
 }

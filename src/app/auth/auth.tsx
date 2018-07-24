@@ -30,15 +30,13 @@ export class Auth extends Component {
     render() {
         const auth = (
             <form class="auth" onSubmit={this.onSubmit}>
-                <div class="auth__container">
-                    {this.state.create ? <AuthCreateUser onAuthChange={this.onChange} /> : <AuthLogin onAuthChange={this.onChange} />}
+                {this.state.create ? <AuthCreateUser onAuthChange={this.onChange} /> : <AuthLogin onAuthChange={this.onChange} />}
 
-                    <input class="auth__button button" type="submit" value={this.state.create ? Translations.auth.createUser : Translations.auth.login} />
+                <input class="auth__button button" type="submit" value={this.state.create ? Translations.auth.createUser : Translations.auth.login} />
 
-                    <button type="button" class="button button_link" onClick={this.toggleCreate}>
-                        {this.state.create ? Translations.auth.login : Translations.auth.createUser}
-                    </button>
-                </div>
+                <button type="button" class="button button_link" onClick={this.toggleCreate}>
+                    {this.state.create ? Translations.auth.login : Translations.auth.createUser}
+                </button>
             </form>
         );
 

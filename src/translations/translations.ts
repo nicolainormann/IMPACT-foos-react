@@ -29,7 +29,8 @@ export class Translations {
         login: "Login",
         displayName: "Display name",
         photoURL: "Image link",
-        createPlayer: "Create player"
+        createPlayer: "Create player",
+        profileImage: "Profile image"
     };
 
     static match = {

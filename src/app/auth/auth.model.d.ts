@@ -18,7 +18,7 @@ export interface IAuthCreateUserStateModel extends IAuthModel {
     confirmPassword: string;
 }
 
-export interface IAuthCreatePlayerStateModel {
+export interface IAuthProfileStateModel {
     displayName: string;
     photoURL: string;
 }

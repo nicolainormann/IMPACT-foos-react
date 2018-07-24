@@ -2,7 +2,7 @@ import { Component, h } from "preact";
 import { AuthApi } from "./api/auth.api";
 import { IAppStateModel } from "./app.model";
 import { Auth } from "./auth/auth";
-import { AuthCreatePlayer } from "./auth/auth-create-player";
+import { AuthProfile } from "./auth/auth-profile";
 import { Header } from "./header/header";
 import { Navigation } from "./navigation/navigation";
 import { RouterOutlet } from "./router-outlet/router-outlet";
@@ -18,22 +18,23 @@ export class App extends Component {
 
     render() {
         let content: JSX.Element;
-        if (this.state.user) {
-            if (this.state.user.displayName) {
-                content = (
-                    <div class="app__container">
-                        <Navigation />
+        if (this.state.user && this.state.user.displayName) {
+            content = (
+                <div class="app__container">
+                    <Navigation />
 
-                        <RouterOutlet />
-                    </div>
-                );
-            }
-            else {
-                content = <AuthCreatePlayer />;
-            }
+                    <RouterOutlet />
+                </div>
+            );
         }
         else {
-            content = <Auth />;
+            content = (
+                <div class="app__center">
+                    <div class="app__center-container">
+                        {this.state.user ? <AuthProfile /> : <Auth />}
+                    </div>
+                </div>
+            );
         }
 
         const app = (
