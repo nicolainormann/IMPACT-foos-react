@@ -22,3 +22,11 @@ export interface IAuthProfileStateModel {
     displayName: string;
     photoURL: string;
 }
+
+export interface IAuthProfilePropsModel {
+    onProfileUpdated: ICallback<firebase.User | null>;
+}
+
+export interface IAuthProfileImagePropsModel {
+    photoURL: string | null;
+}

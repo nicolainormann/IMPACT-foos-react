@@ -18,7 +18,7 @@
         &:hover,
         &_active {
             --text-color: #{$primary-color};
-            --background-color: lighten($alt-color, 5%);
+            --background-color: #{lighten($alt-color, 5%)};
         }
 
         display: flex;
@@ -27,7 +27,7 @@
         background-color: var(--background-color);
         width: 100%;
 
-        &-svg {
+        &-image {
             width: var(--svg-size);
             height: var(--svg-size);
             fill: var(--text-color);

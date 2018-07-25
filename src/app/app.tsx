@@ -13,7 +13,11 @@ export class App extends Component {
     };
 
     componentDidMount() {
-        AuthApi.auth$(user => this.setState({ user }));
+        AuthApi.auth$(user => this.updateUser(user));
+    }
+
+    updateUser = (user: firebase.User | null) => {
+        this.setState({ user });
     }
 
     render() {
@@ -21,7 +25,7 @@ export class App extends Component {
         if (this.state.user && this.state.user.displayName) {
             content = (
                 <div class="app__container">
-                    <Navigation />
+                    <Navigation user={this.state.user} />
 
                     <RouterOutlet />
                 </div>
@@ -31,7 +35,7 @@ export class App extends Component {
             content = (
                 <div class="app__center">
                     <div class="app__center-container">
-                        {this.state.user ? <AuthProfile /> : <Auth />}
+                        {this.state.user ? <AuthProfile onProfileUpdated={this.updateUser} /> : <Auth />}
                     </div>
                 </div>
             );

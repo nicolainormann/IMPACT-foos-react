@@ -1,7 +1,9 @@
 import { fireAuth } from "../firebase/firebase";
 
 export class AuthApi {
-    static currentUser = fireAuth.currentUser;
+    static getCurrentUser() {
+        return fireAuth.currentUser;
+    }
 
     static auth$(nextOrObserver: firebase.Observer<any> | ((a: firebase.User | null) => any)) {
         return fireAuth.onAuthStateChanged(nextOrObserver);

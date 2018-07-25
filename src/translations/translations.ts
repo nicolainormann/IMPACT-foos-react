@@ -12,6 +12,10 @@ export class Translations {
             title: "Standing",
             url: "/standing"
         },
+        profile: {
+            title: "Profile",
+            url: "/profile"
+        },
         logout: {
             title: "Logout"
         }
