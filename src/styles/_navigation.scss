@@ -1,7 +1,17 @@
 .navigation {
     grid-area: navigation;
+    display: flex;
+    flex-direction: column;
     height: calc(100vh - #{$header-height});
     background-color: lighten($alt-color, 10%);
+
+    &__top {
+        flex: 1;
+    }
+
+    &__bottom {
+        border-top: 3px solid $primary-color;
+    }
 
     &__link {
         --display-text: none;

@@ -37,7 +37,11 @@ export class AuthProfile extends Component<IAuthProfilePropsModel, any> {
 
     onSubmit = (event: Event) => {
         event.preventDefault();
-        AuthApi.updateCurrentProfile({ displayName: this.state.displayName, photoURL: this.state.photoURL }).then(() => this.props.onProfileUpdated(AuthApi.getCurrentUser()));
+        AuthApi.updateCurrentProfile({ displayName: this.state.displayName, photoURL: this.state.photoURL }).then(() => {
+            if (this.props.onProfileUpdated) {
+                this.props.onProfileUpdated(AuthApi.getCurrentUser());
+            }
+        });
     }
 
     render() {

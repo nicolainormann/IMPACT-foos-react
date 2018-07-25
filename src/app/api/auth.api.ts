@@ -1,4 +1,5 @@
 import { fireAuth } from "../firebase/firebase";
+import { PlayersApi } from "./players.api";
 
 export class AuthApi {
     static getCurrentUser() {
@@ -22,6 +23,7 @@ export class AuthApi {
     }
 
     static updateCurrentProfile(profile: { displayName: string | null; photoURL: string | null; }) {
+        // PlayersApi.setPlayer(this.getCurrentUser()!.uid, profile);
         return fireAuth.currentUser!.updateProfile(profile);
     }
 }

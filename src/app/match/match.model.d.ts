@@ -1,9 +1,5 @@
 import { ICallback } from "../global/callback";
-
-export interface IPlayer {
-    name: string;
-    username: string;
-}
+import { IPlayer } from "../global/player";
 
 //#region Match
 export interface IMatchModel {

@@ -1,4 +1,5 @@
 import { ICallback } from "../global/callback";
+import { IPlayer } from "../global/player";
 
 export interface IAuthModel {
     email: string;
@@ -18,13 +19,10 @@ export interface IAuthCreateUserStateModel extends IAuthModel {
     confirmPassword: string;
 }
 
-export interface IAuthProfileStateModel {
-    displayName: string;
-    photoURL: string;
-}
+export interface IAuthProfileStateModel extends IPlayer { }
 
 export interface IAuthProfilePropsModel {
-    onProfileUpdated: ICallback<firebase.User | null>;
+    onProfileUpdated?: ICallback<firebase.User | null>;
 }
 
 export interface IAuthProfileImagePropsModel {
