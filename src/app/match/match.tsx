@@ -1,7 +1,8 @@
 import { Component, h } from "preact";
 import { PlayersApi } from "../api/players.api";
+import { IPlayer } from "../global/player";
 import { MatchTeam } from "./match-team";
-import { IMatchStateModel, IMatchTeamModel, IPlayer } from "./match.model";
+import { IMatchStateModel, IMatchTeamModel } from "./match.model";
 
 export class Match extends Component {
     players: IPlayer[] = [];
@@ -12,16 +13,16 @@ export class Match extends Component {
                 {
                     team: 0,
                     players: [
-                        { position: 0, name: "", username: "" },
-                        { position: 1, name: "", username: "" }
+                        { position: 0, displayName: "", photoURL: null, uid: "" },
+                        { position: 1, displayName: "", photoURL: null, uid: "" }
                     ],
                     score: 0
                 },
                 {
                     team: 1,
                     players: [
-                        { position: 0, name: "", username: "" },
-                        { position: 1, name: "", username: "" }
+                        { position: 0, displayName: "", photoURL: null, uid: "" },
+                        { position: 1, displayName: "", photoURL: null, uid: "" }
                     ],
                     score: 0
                 }
@@ -40,7 +41,7 @@ export class Match extends Component {
     teamChange = (addMatchTeam: IMatchTeamModel) => {
         const match = this.state.match;
         match.teams[addMatchTeam.team] = addMatchTeam;
-        const availablePlayers = this.players.filter(player => !this.state.match.teams.map(team => team.players.map(matchPlayer => matchPlayer.username)).reduce((acc, val) => acc.concat(val), []).includes(player.username));
+        const availablePlayers = this.players.filter(player => !this.state.match.teams.map(team => team.players.map(matchPlayer => matchPlayer.uid)).reduce((acc, val) => acc.concat(val), []).includes(player.uid));
 
         this.setState({
             availablePlayers,

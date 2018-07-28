@@ -23,7 +23,12 @@ export class AuthApi {
     }
 
     static updateCurrentProfile(profile: { displayName: string | null; photoURL: string | null; }) {
-        // PlayersApi.setPlayer(this.getCurrentUser()!.uid, profile);
-        return fireAuth.currentUser!.updateProfile(profile);
+        return fireAuth.currentUser!.updateProfile(profile).then(() => {
+            return this.updatePlayer(profile.displayName, profile.photoURL);
+        });
+    }
+
+    static updatePlayer(displayName: string | null, photoURL: string | null) {
+        return PlayersApi.setPlayer({ displayName: displayName!, photoURL, uid: fireAuth.currentUser!.uid! });
     }
 }

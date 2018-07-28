@@ -19,7 +19,10 @@ export interface IAuthCreateUserStateModel extends IAuthModel {
     confirmPassword: string;
 }
 
-export interface IAuthProfileStateModel extends IPlayer { }
+export interface IAuthProfileStateModel {
+    displayName: string;
+    photoURL: string | null;
+}
 
 export interface IAuthProfilePropsModel {
     onProfileUpdated?: ICallback<firebase.User | null>;

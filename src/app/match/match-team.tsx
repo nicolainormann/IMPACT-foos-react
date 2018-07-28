@@ -7,8 +7,8 @@ export class MatchTeam extends Component<IMatchTeamProps, any> {
     state: IMatchTeamStateModel = {
         score: "",
         players: [
-            { position: 0, name: "", username: "" },
-            { position: 1, name: "", username: "" }
+            { position: 0, displayName: "", photoURL: null, uid: "" },
+            { position: 1, displayName: "", photoURL: null, uid: "" }
         ]
     };
 

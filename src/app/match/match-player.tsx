@@ -7,8 +7,9 @@ export class MatchPlayer extends Component<IMatchPlayerProps, any> {
         const selectElement = (event.target as HTMLSelectElement);
         this.props.onAddPlayer({
             position: this.props.player.position,
-            name: selectElement.selectedOptions[0].innerText,
-            username: selectElement.value
+            displayName: selectElement.selectedOptions[0].innerText,
+            uid: selectElement.value,
+            photoURL: null
         });
     }
 
@@ -18,8 +19,8 @@ export class MatchPlayer extends Component<IMatchPlayerProps, any> {
                 {Translations.match.player.position[this.props.player.position]}
                 <select class="match-player__select input" onChange={this.addPlayer} required>
                     <option value="" disabled hidden selected>{Translations.match.player.selectPlaceholder}</option>
-                    {this.props.player.username && <option key={this.props.player.username} value={this.props.player.username}>{this.props.player.name}</option>}
-                    {this.props.players.map(player => <option key={player.username} value={player.username}>{player.name}</option>)}
+                    {this.props.player.uid && <option key={this.props.player.uid} value={this.props.player.uid}>{this.props.player.displayName}</option>}
+                    {this.props.players.map(player => <option key={player.uid} value={player.uid}>{player.displayName}</option>)}
                 </select>
             </div>
         );
