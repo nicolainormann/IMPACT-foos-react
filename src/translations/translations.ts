@@ -38,9 +38,11 @@ export class Translations {
     };
 
     static match = {
-        team: {
-            team: "Team {0}",
+        score: {
             score: "Score"
+        },
+        team: {
+            team: "Team {0}"
         },
         player: {
             position: ["Defense", "Offense"],

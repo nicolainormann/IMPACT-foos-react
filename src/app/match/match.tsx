@@ -1,6 +1,7 @@
 import { Component, h } from "preact";
 import { PlayersApi } from "../api/players.api";
 import { IPlayer } from "../global/player";
+import { MatchScore } from "./match-score";
 import { MatchTeam } from "./match-team";
 import { IMatchStateModel, IMatchTeamModel } from "./match.model";
 
@@ -15,16 +16,14 @@ export class Match extends Component {
                     players: [
                         { position: 0, displayName: "", photoURL: null, uid: "" },
                         { position: 1, displayName: "", photoURL: null, uid: "" }
-                    ],
-                    score: 0
+                    ]
                 },
                 {
                     team: 1,
                     players: [
                         { position: 0, displayName: "", photoURL: null, uid: "" },
                         { position: 1, displayName: "", photoURL: null, uid: "" }
-                    ],
-                    score: 0
+                    ]
                 }
             ]
         },
@@ -53,6 +52,8 @@ export class Match extends Component {
         const match = (
             <div class="match">
                 {!!this.players.length && this.state.match.teams.map(team => <MatchTeam key={team.team} team={team} players={this.state.availablePlayers} onTeamChange={this.teamChange} />)}
+
+                <MatchScore mode="tenPoint" />
             </div>
         );
 

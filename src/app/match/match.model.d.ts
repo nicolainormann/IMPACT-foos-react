@@ -21,12 +21,10 @@ export interface IMatchTeamProps {
 
 export interface IMatchTeamModel {
     team: number;
-    score: number;
     players: IMatchPlayerModel[];
 }
 
 export interface IMatchTeamStateModel {
-    score: string;
     players: IMatchPlayerModel[];
 }
 //#endregion
@@ -40,5 +38,11 @@ export interface IMatchPlayerProps {
 
 export interface IMatchPlayerModel extends IPlayer {
     position: number;
+}
+//#endregion
+
+//#region MatchScore
+export interface IMatchScorePropsModel {
+    mode: "tenPoint" | "sevenPoint" | "threeSet" | "fiveSet";
 }
 //#endregion
