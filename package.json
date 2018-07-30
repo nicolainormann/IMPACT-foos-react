@@ -2,14 +2,11 @@
     "name": "IMPACT-foos",
     "version": "1.0.0",
     "description": "",
-    "main": "",
+    "main": "index.js",
     "scripts": {
         "start": "webpack-dev-server"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/nicolainormann/IMPACT-foos.git"
-    },
+    "repository": "git+https://github.com/nicolainormann/IMPACT-foos.git",
     "author": "nicolainormann",
     "license": "ISC",
     "bugs": {

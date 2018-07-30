@@ -1,8 +1,8 @@
 import { Component, h } from "preact";
 import { Translations } from "../../translations/translations";
-import { IAuthProfileImagePropsModel } from "./auth.model";
+import { IAuthProfileImageProps } from "./auth.model";
 
-export class AuthProfileImage extends Component<IAuthProfileImagePropsModel, any> {
+export class AuthProfileImage extends Component<IAuthProfileImageProps, any> {
     render() {
         let image: JSX.Element;
         if (this.props.photoURL) {

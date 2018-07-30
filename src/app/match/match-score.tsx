@@ -1,35 +1,36 @@
 import { Component, h } from "preact";
-import { IMatchScorePropsModel } from "./match.model";
+import { MatchScoreInput } from "./match-score-input";
+import { IMatchScore, IMatchScoreProps, IMatchScoreState } from "./match.model";
 
-export class MatchScore extends Component<IMatchScorePropsModel, any> {
-    state = {
-        score: 0
+export class MatchScore extends Component<IMatchScoreProps, IMatchScoreState> {
+    state: IMatchScoreState = {
+        teamScores: [
+            { team: 0, score: 0 },
+            { team: 1, score: 0 }
+        ]
     };
 
-    createTenPoint() {
-        const radioArray = [];
-
-        for (let i = 0; i <= 10; i++) {
-            const randomId = "radio-" + i.toString() + "-" + Math.floor(Math.random() * 1000);
-            radioArray.push(
-                <div className={"match-score__radio " + (this.state.score >= i ? "match-score__radio_active" : "")}>
-                    <label class="match-score__radio-label" for={randomId}>{i}</label>
-                    <input class="match-score__radio-input" name="score" type="radio" id={randomId} value={i} />
-                </div>
-            );
-        }
-
-        return radioArray;
-    }
-
     onChange = (event: Event) => {
-        this.setState({ score: (event.target as HTMLInputElement).value });
+        this.setState((current: IMatchScoreState) => {
+            const value = JSON.parse((event.target as HTMLInputElement).value) as IMatchScore;
+            const newState = current.teamScores;
+            newState[value.team] = value;
+
+            switch (this.props.mode) {
+                case "tenPoint":
+                    if (value.score < 10) {
+                        newState[value.team ^ 1].score = 10;
+                    }
+                    break;
+            }
+            return { teamScores: newState };
+        });
     }
 
     render() {
         const matchScore = (
             <form class="match-score" onChange={this.onChange}>
-                {this.createTenPoint()}
+                {this.state.teamScores.map(teamScore => <MatchScoreInput key={teamScore.team} teamScore={teamScore} mode={this.props.mode} />)}
             </form>
         );
 

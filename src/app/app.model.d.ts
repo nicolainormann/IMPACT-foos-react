@@ -1,3 +1,3 @@
-export interface IAppStateModel {
+export interface IAppState {
     user: firebase.User | null
 }

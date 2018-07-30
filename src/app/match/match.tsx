@@ -3,12 +3,12 @@ import { PlayersApi } from "../api/players.api";
 import { IPlayer } from "../global/player";
 import { MatchScore } from "./match-score";
 import { MatchTeam } from "./match-team";
-import { IMatchStateModel, IMatchTeamModel } from "./match.model";
+import { IMatchState, IMatchTeam } from "./match.model";
 
-export class Match extends Component {
+export class Match extends Component<any, IMatchState> {
     players: IPlayer[] = [];
 
-    state: IMatchStateModel = {
+    state: IMatchState = {
         match: {
             teams: [
                 {
@@ -37,14 +37,13 @@ export class Match extends Component {
         });
     }
 
-    teamChange = (addMatchTeam: IMatchTeamModel) => {
-        const match = this.state.match;
-        match.teams[addMatchTeam.team] = addMatchTeam;
-        const availablePlayers = this.players.filter(player => !this.state.match.teams.map(team => team.players.map(matchPlayer => matchPlayer.uid)).reduce((acc, val) => acc.concat(val), []).includes(player.uid));
+    teamChange = (addMatchTeam: IMatchTeam) => {
+        this.setState((current: IMatchState) => {
+            const match = current.match;
+            match.teams[addMatchTeam.team] = addMatchTeam;
+            const availablePlayers = this.players.filter(player => !current.match.teams.map(team => team.players.map(matchPlayer => matchPlayer.uid)).reduce((acc, val) => acc.concat(val), []).includes(player.uid));
 
-        this.setState({
-            availablePlayers,
-            match
+            return { availablePlayers, match };
         });
     }
 

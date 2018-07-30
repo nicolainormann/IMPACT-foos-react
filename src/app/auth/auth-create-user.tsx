@@ -1,9 +1,9 @@
 import { Component, h } from "preact";
 import { Translations } from "../../translations/translations";
-import { IAuthCreateUserStateModel, IAuthProps } from "./auth.model";
+import { IAuthCreateUserState, IAuthProps } from "./auth.model";
 
-export class AuthCreateUser extends Component<IAuthProps, any> {
-    state: IAuthCreateUserStateModel = {
+export class AuthCreateUser extends Component<IAuthProps, IAuthCreateUserState> {
+    state: IAuthCreateUserState = {
         email: "",
         password: "",
         confirmPassword: ""
@@ -14,7 +14,7 @@ export class AuthCreateUser extends Component<IAuthProps, any> {
         if (target.checkValidity()) {
             const name = target.name;
             const value = target.value;
-            this.setState({ [name]: value });
+            this.setState(() => ({ [name]: value }));
 
             if (!!this.state.email && !!this.state.password && !!this.state.confirmPassword && this.state.password === this.state.confirmPassword) {
                 this.props.onAuthChange({

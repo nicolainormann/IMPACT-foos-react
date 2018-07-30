@@ -1,14 +1,14 @@
 import { Component, h } from "preact";
 import { AuthApi } from "./api/auth.api";
-import { IAppStateModel } from "./app.model";
+import { IAppState } from "./app.model";
 import { Auth } from "./auth/auth";
 import { AuthProfile } from "./auth/auth-profile";
 import { Header } from "./header/header";
 import { Navigation } from "./navigation/navigation";
 import { RouterOutlet } from "./router-outlet/router-outlet";
 
-export class App extends Component {
-    state: IAppStateModel = {
+export class App extends Component<any, IAppState> {
+    state: IAppState = {
         user: null
     };
 

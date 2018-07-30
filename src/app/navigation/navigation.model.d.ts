@@ -1,3 +1,3 @@
-export interface INavigationPropsModel {
+export interface INavigationProps {
     user: firebase.User | null
 }

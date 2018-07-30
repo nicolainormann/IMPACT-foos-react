@@ -1,10 +1,10 @@
 import { Component, h } from "preact";
 import { Translations } from "../../translations/translations";
 import { MatchPlayer } from "./match-player";
-import { IMatchPlayerModel, IMatchTeamProps, IMatchTeamStateModel } from "./match.model";
+import { IMatchPlayer, IMatchTeamProps, IMatchTeamState } from "./match.model";
 
-export class MatchTeam extends Component<IMatchTeamProps, any> {
-    state: IMatchTeamStateModel = {
+export class MatchTeam extends Component<IMatchTeamProps, IMatchTeamState> {
+    state: IMatchTeamState = {
         players: [
             { position: 0, displayName: "", photoURL: null, uid: "" },
             { position: 1, displayName: "", photoURL: null, uid: "" }
@@ -18,11 +18,13 @@ export class MatchTeam extends Component<IMatchTeamProps, any> {
         });
     }
 
-    playerChange = (addMatchPlayer: IMatchPlayerModel) => {
-        const players = this.state.players;
-        players[addMatchPlayer.position] = addMatchPlayer;
-        this.setState({ players });
-        this.teamChange();
+    playerChange = (addMatchPlayer: IMatchPlayer) => {
+        this.setState((current: IMatchTeamState) => {
+            const players = current.players;
+            players[addMatchPlayer.position] = addMatchPlayer;
+
+            return { players };
+        }, () => this.teamChange());
     }
 
     render() {

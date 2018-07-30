@@ -1,33 +1,33 @@
 import { ICallback } from "../global/callback";
 import { IPlayer } from "../global/player";
 
-export interface IAuthModel {
+export interface IAuthLoginState {
     email: string;
     password: string;
 }
 
-export interface IAuthStateModel {
+export interface IAuthState {
     create: boolean;
-    form: IAuthModel;
+    form: IAuthLoginState;
 }
 
 export interface IAuthProps {
-    onAuthChange: ICallback<IAuthModel>;
+    onAuthChange: ICallback<IAuthLoginState>;
 }
 
-export interface IAuthCreateUserStateModel extends IAuthModel {
+export interface IAuthCreateUserState extends IAuthLoginState {
     confirmPassword: string;
 }
 
-export interface IAuthProfileStateModel {
+export interface IAuthProfileState {
     displayName: string;
     photoURL: string | null;
 }
 
-export interface IAuthProfilePropsModel {
+export interface IAuthProfileProps {
     onProfileUpdated?: ICallback<firebase.User | null>;
 }
 
-export interface IAuthProfileImagePropsModel {
+export interface IAuthProfileImageProps {
     photoURL: string | null;
 }

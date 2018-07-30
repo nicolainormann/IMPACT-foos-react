@@ -1,6 +1,7 @@
 {
     "extends": ["tslint:latest", "tslint-react"],
     "rules": {
+        "ban-comma-operator": false,
         "radix": false,
         "no-submodule-imports": false,
         "trailing-comma": false,
@@ -39,7 +40,7 @@
             }
         ],
         "no-arg": true,
-        "no-bitwise": true,
+        "no-bitwise": false,
         "no-console": [
             true,
             "debug",

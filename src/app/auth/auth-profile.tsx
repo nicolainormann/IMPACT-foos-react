@@ -2,10 +2,10 @@ import { Component, h } from "preact";
 import { Translations } from "../../translations/translations";
 import { AuthApi } from "../api/auth.api";
 import { AuthProfileImage } from "./auth-profile-image";
-import { IAuthProfilePropsModel, IAuthProfileStateModel } from "./auth.model";
+import { IAuthProfileProps, IAuthProfileState } from "./auth.model";
 
-export class AuthProfile extends Component<IAuthProfilePropsModel, any> {
-    state: IAuthProfileStateModel = {
+export class AuthProfile extends Component<IAuthProfileProps, IAuthProfileState> {
+    state: IAuthProfileState = {
         photoURL: "",
         displayName: ""
     };
@@ -14,7 +14,7 @@ export class AuthProfile extends Component<IAuthProfilePropsModel, any> {
         const target = (event.target! as HTMLInputElement);
         const name = target.name;
         const value = target.value;
-        this.setState({ [name]: value });
+        this.setState(() => ({ [name]: value }));
     }
 
     checkImage = (event: Event) => {

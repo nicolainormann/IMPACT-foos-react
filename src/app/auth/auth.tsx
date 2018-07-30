@@ -3,10 +3,10 @@ import { Translations } from "../../translations/translations";
 import { AuthApi } from "../api/auth.api";
 import { AuthCreateUser } from "./auth-create-user";
 import { AuthLogin } from "./auth-login";
-import { IAuthModel, IAuthStateModel } from "./Auth.model";
+import { IAuthLoginState, IAuthState } from "./Auth.model";
 
-export class Auth extends Component {
-    state: IAuthStateModel = {
+export class Auth extends Component<any, IAuthState> {
+    state: IAuthState = {
         create: false,
         form: {
             email: "",
@@ -15,11 +15,11 @@ export class Auth extends Component {
     };
 
     toggleCreate = () => {
-        this.setState({ create: !this.state.create });
+        this.setState((current: IAuthState) => ({ create: !current.create }));
     }
 
-    onChange = (AuthModel: IAuthModel) => {
-        this.setState({ form: AuthModel });
+    onChange = (auth: IAuthLoginState) => {
+        this.setState({ form: auth });
     }
 
     onSubmit = (event: Event) => {

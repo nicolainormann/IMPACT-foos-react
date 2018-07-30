@@ -3,9 +3,9 @@ import { Link } from "preact-router/match";
 import { Translations } from "../../translations/translations";
 import { AuthApi } from "../api/auth.api";
 import { AuthProfileImage } from "../auth/auth-profile-image";
-import { INavigationPropsModel } from "./navigation.model";
+import { INavigationProps } from "./navigation.model";
 
-export class Navigation extends Component<INavigationPropsModel, any> {
+export class Navigation extends Component<INavigationProps, any> {
     logout = () => {
         AuthApi.logout();
     }
