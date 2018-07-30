@@ -43,7 +43,7 @@ export class Match extends Component<any, IMatchState> {
             match.teams[addMatchTeam.team] = addMatchTeam;
             const availablePlayers = this.players.filter(player => !current.match.teams.map(team => team.players.map(matchPlayer => matchPlayer.uid)).reduce((acc, val) => acc.concat(val), []).includes(player.uid));
 
-            return { availablePlayers, match };
+            return { match, availablePlayers };
         });
     }
 
