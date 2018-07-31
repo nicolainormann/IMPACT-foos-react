@@ -1,18 +1,12 @@
 .app {
     margin-top: $header-height;
+    margin-left: var(--navigation-width);
     min-height: calc(100vh - #{$header-height});
     display: flex;
     flex-direction: column;
 
     &__container {
-        --navigation-width: 60px;
-        @include respond-to(tablet, desktop) {
-            --navigation-width: 200px;
-        }
-
-        display: grid;
-        grid-template-columns: var(--navigation-width) 1fr;
-        grid-template-areas: "navigation router-outlet";
+        padding: $spacing-large;
     }
 
     &__center {
@@ -20,11 +14,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: $spacing-medium;
-
-        @include respond-to(mobile) {
-            --height: auto;
-        }
+        padding: $spacing-large;
 
         &-container {
             --width: 500px;

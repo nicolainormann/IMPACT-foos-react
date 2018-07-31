@@ -12,6 +12,9 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
+    devServer: {
+        historyApiFallback: true
+    },
     module: {
         rules: [{
                 test: /\.tsx?$/,

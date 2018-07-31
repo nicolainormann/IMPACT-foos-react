@@ -9,6 +9,7 @@ export interface IMatch {
 export interface IMatchState {
     availablePlayers: IPlayer[];
     match: IMatch;
+    valid: boolean;
 }
 //#endregion
 
@@ -16,12 +17,13 @@ export interface IMatchState {
 export interface IMatchTeamProps {
     players: IPlayer[];
     team: IMatchTeam;
-    onTeamChange: ICallback<IMatchTeam>;
+    onTeamChange: ICallback<Partial<IMatchTeam>>;
 }
 
 export interface IMatchTeam {
     team: number;
     players: IMatchPlayer[];
+    score: number;
 }
 
 export interface IMatchTeamState {
@@ -46,10 +48,12 @@ type MatchScoreMode = "tenPoint" | "sevenPoint" | "threeSet" | "fiveSet";
 
 export interface IMatchScoreState {
     teamScores: IMatchScore[];
+    valid: boolean;
 }
 
 export interface IMatchScoreProps {
     mode: MatchScoreMode;
+    onScoreChange: ICallback<IMatchScoreState>;
 }
 
 export interface IMatchScore {
@@ -59,7 +63,9 @@ export interface IMatchScore {
 //#endregion
 
 //#region MatchScoreInput
-export interface IMatchScoreInputProps extends IMatchScoreProps {
+export interface IMatchScoreInputProps {
+    mode: MatchScoreMode;
     teamScore: IMatchScore;
+    onScoreChange: ICallback<IMatchScore>;
 }
 //#endregion

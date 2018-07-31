@@ -9,3 +9,10 @@ $spacing-medium: $spacing-small * 2;
 $spacing-large: $spacing-small * 3;
 
 $header-height: 24px+$spacing-medium * 2;
+
+:root {
+    --navigation-width: 45px;
+    @include respond-to(tablet, desktop) {
+        --navigation-width: 200px;
+    }
+}

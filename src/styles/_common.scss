@@ -1,5 +1,5 @@
-@import "variables";
 @import "mixins";
+@import "variables";
 @import "input";
 @import "app";
 @import "auth";
@@ -12,7 +12,6 @@
 @import "match-player";
 @import "match-score";
 @import "match-score-input";
-@import "router-outlet";
 
 * {
     box-sizing: border-box;

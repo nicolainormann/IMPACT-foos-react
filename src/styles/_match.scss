@@ -1,7 +1,7 @@
 .match {
     display: grid;
-    grid-template-columns: "1fr 1fr";
-    grid-template-areas: "left right";
-    border: 3px solid $alt-color;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: $spacing-medium;
     padding: $spacing-medium;
+    border: 3px solid $alt-color;
 }

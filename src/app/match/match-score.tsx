@@ -7,31 +7,33 @@ export class MatchScore extends Component<IMatchScoreProps, IMatchScoreState> {
         teamScores: [
             { team: 0, score: 0 },
             { team: 1, score: 0 }
-        ]
+        ],
+        valid: false
     };
 
-    onChange = (event: Event) => {
+    onScoreChange = (value: IMatchScore) => {
         this.setState((current: IMatchScoreState) => {
-            const value = JSON.parse((event.target as HTMLInputElement).value) as IMatchScore;
-            const newState = current.teamScores;
-            newState[value.team] = value;
+            const newState = current;
+            newState.teamScores[value.team] = value;
 
             switch (this.props.mode) {
                 case "tenPoint":
                     if (value.score < 10) {
-                        newState[value.team ^ 1].score = 10;
+                        newState.teamScores[value.team ^ 1].score = 10;
                     }
+                    newState.valid = value.score !== newState.teamScores[value.team ^ 1].score;
                     break;
             }
-            return { teamScores: newState };
-        });
+
+            return newState;
+        }, () => this.props.onScoreChange(this.state));
     }
 
     render() {
         const matchScore = (
-            <form class="match-score" onChange={this.onChange}>
-                {this.state.teamScores.map(teamScore => <MatchScoreInput key={teamScore.team} teamScore={teamScore} mode={this.props.mode} />)}
-            </form>
+            <div class="match-score">
+                {this.state.teamScores.map(teamScore => <MatchScoreInput key={teamScore.team} teamScore={teamScore} mode={this.props.mode} onScoreChange={this.onScoreChange} />)}
+            </div>
         );
 
         return matchScore;
