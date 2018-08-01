@@ -28,9 +28,9 @@ export class AuthCreateUser extends Component<IAuthProps, IAuthCreateUserState> 
     render() {
         const authCreateUser = (
             <div class="auth-create-user">
-                <input class="auth__input input" onInput={this.onInput} type="email" name="email" placeholder={Translations.auth.email} required />
-                <input class="auth__input input" onInput={this.onInput} type="password" name="password" placeholder={Translations.auth.password} required minLength={6} />
-                <input class="auth__input input" onInput={this.onInput} type="password" name="confirmPassword" placeholder={Translations.auth.confirmPassword} required minLength={6} />
+                <input class="auth__input input" onInput={this.onInput} type="email" name="email" value={this.state.email} placeholder={Translations.auth.email} required />
+                <input class="auth__input input" onInput={this.onInput} type="password" name="password" value={this.state.password} placeholder={Translations.auth.password} required minLength={6} />
+                <input class="auth__input input" onInput={this.onInput} type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder={Translations.auth.confirmPassword} required minLength={6} />
             </div>
         );
 

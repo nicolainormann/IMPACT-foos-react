@@ -4,13 +4,18 @@ import { IPlayer } from "../global/player";
 export class PlayersApi {
     private static _collection = firestore.collection("players");
 
-    static getPlayers() {
+    static getPlayers(): Promise<IPlayer[]> {
         return this._collection.get().then(res => {
-            return res.docs.map(player => player.data()) as IPlayer[];
+            return res.docs.map(player => {
+                const data = player.data() as IPlayer;
+                return { uid: player.id, ...data };
+            });
         });
     }
 
     static setPlayer(player: IPlayer) {
-        return this._collection.doc(player.uid).set(player);
+        const uid = player.uid;
+        delete player.uid;
+        return this._collection.doc(uid).set(player);
     }
 }

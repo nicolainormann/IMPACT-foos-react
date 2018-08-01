@@ -26,7 +26,7 @@ export class MatchPlayer extends Component<IMatchPlayerProps, any> {
                     </div>
                     <select class="match-player__select input" onChange={this.addPlayer} required>
                         <option value="" disabled hidden selected>{Translations.match.player.selectPlaceholder}</option>
-                        {this.props.player.uid && <option key={this.props.player.uid} value={this.props.player.uid}>{this.props.player.displayName}</option>}
+                        {this.props.player.uid && <option key={this.props.player.uid} value={JSON.stringify({ uid: this.props.player.uid, displayName: this.props.player.displayName, photoURL: this.props.player.photoURL })}>{this.props.player.displayName}</option>}
                         {this.props.players.map(player => <option key={player.uid} value={JSON.stringify(player)}>{player.displayName}</option>)}
                     </select>
                 </div>

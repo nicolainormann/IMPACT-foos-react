@@ -8,22 +8,24 @@ export class MatchTeam extends Component<IMatchTeamProps, IMatchTeamState> {
         players: [
             { position: 0, displayName: "", photoURL: null, uid: "" },
             { position: 1, displayName: "", photoURL: null, uid: "" }
-        ]
+        ],
+        valid: false
     };
 
     teamChange() {
         this.props.onTeamChange({
             team: this.props.team.team,
-            players: this.state.players
+            players: this.state.players,
+            valid: this.state.valid
         });
     }
 
     playerChange = (addMatchPlayer: IMatchPlayer) => {
         this.setState((current: IMatchTeamState) => {
-            const players = current.players;
-            players[addMatchPlayer.position] = addMatchPlayer;
-
-            return { players };
+            const newState = current;
+            newState.players[addMatchPlayer.position] = addMatchPlayer;
+            newState.valid = !!(newState.players[0].uid && newState.players[1].uid);
+            return newState;
         }, () => this.teamChange());
     }
 

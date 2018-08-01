@@ -9,7 +9,10 @@ export interface IMatch {
 export interface IMatchState {
     availablePlayers: IPlayer[];
     match: IMatch;
-    valid: boolean;
+    valid: {
+        teams: boolean[];
+        score: boolean;
+    };
 }
 //#endregion
 
@@ -17,7 +20,7 @@ export interface IMatchState {
 export interface IMatchTeamProps {
     players: IPlayer[];
     team: IMatchTeam;
-    onTeamChange: ICallback<Partial<IMatchTeam>>;
+    onTeamChange: ICallback<IMatchTeamChange>;
 }
 
 export interface IMatchTeam {
@@ -28,6 +31,11 @@ export interface IMatchTeam {
 
 export interface IMatchTeamState {
     players: IMatchPlayer[];
+    valid: boolean;
+}
+
+export interface IMatchTeamChange extends IMatchTeamState {
+    team: number;
 }
 //#endregion
 

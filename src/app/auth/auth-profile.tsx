@@ -56,8 +56,8 @@ export class AuthProfile extends Component<IAuthProfileProps, IAuthProfileState>
                     }
                     <AuthProfileImage photoURL={this.state.photoURL} />
                 </div>
-                <input class="auth__input input" onInput={this.onInput} type="text" name="displayName" placeholder={Translations.auth.displayName} required />
-                <input class="auth__input input" onInput={this.checkImage} type="text" name="photoURL" placeholder={Translations.auth.photoURL} />
+                <input class="auth__input input" onInput={this.onInput} type="text" name="displayName" value={this.state.displayName} placeholder={Translations.auth.displayName} required />
+                <input class="auth__input input" onInput={this.checkImage} type="text" name="photoURL" value={this.state.photoURL ? this.state.photoURL : ""} placeholder={Translations.auth.photoURL} />
                 <input class="auth__button button" type="submit" value={Translations.auth.createPlayer} />
             </form>
         );

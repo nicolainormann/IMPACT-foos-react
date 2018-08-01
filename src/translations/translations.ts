@@ -38,6 +38,7 @@ export class Translations {
     };
 
     static match = {
+        submit: "Submit",
         score: {
             score: "Score"
         },

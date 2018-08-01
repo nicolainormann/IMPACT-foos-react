@@ -27,8 +27,8 @@ export class AuthLogin extends Component<IAuthProps, IAuthLoginState> {
     render() {
         const authLogin = (
             <div class="auth-login">
-                <input class="auth__input input" onInput={this.onInput} type="email" name="email" placeholder={Translations.auth.email} required />
-                <input class="auth__input input" onInput={this.onInput} type="password" name="password" placeholder={Translations.auth.password} required minLength={6} />
+                <input class="auth__input input" onInput={this.onInput} type="email" name="email" value={this.state.email} placeholder={Translations.auth.email} required />
+                <input class="auth__input input" onInput={this.onInput} type="password" name="password" value={this.state.password} placeholder={Translations.auth.password} required minLength={6} />
             </div>
         );
 

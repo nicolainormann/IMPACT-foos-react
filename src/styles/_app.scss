@@ -1,11 +1,11 @@
 .app {
     margin-top: $header-height;
-    margin-left: var(--navigation-width);
     min-height: calc(100vh - #{$header-height});
     display: flex;
     flex-direction: column;
 
     &__container {
+        margin-left: var(--navigation-width);
         padding: $spacing-large;
     }
 
