@@ -2,3 +2,4 @@ dist
 node_modules
 .vscode
 firebase.config.ts
+functions/lib

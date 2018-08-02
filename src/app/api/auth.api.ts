@@ -1,5 +1,4 @@
-import { fireAuth } from "../firebase/firebase";
-import { PlayersApi } from "./players.api";
+import { fireAuth, functions } from "../firebase/firebase";
 
 export class AuthApi {
     static getCurrentUser() {
@@ -23,12 +22,7 @@ export class AuthApi {
     }
 
     static updateCurrentProfile(profile: { displayName: string | null; photoURL: string | null; }) {
-        return fireAuth.currentUser!.updateProfile(profile).then(() => {
-            return this.updatePlayer(profile.displayName, profile.photoURL);
-        });
-    }
-
-    static updatePlayer(displayName: string | null, photoURL: string | null) {
-        return PlayersApi.setPlayer({ displayName: displayName!, photoURL, uid: fireAuth.currentUser!.uid! });
+        const updatePlayer = functions.httpsCallable("updatePlayer");
+        return updatePlayer({ uid: fireAuth.currentUser!.uid!, ...profile });
     }
 }

@@ -37,9 +37,10 @@ export class AuthProfile extends Component<IAuthProfileProps, IAuthProfileState>
 
     onSubmit = (event: Event) => {
         event.preventDefault();
-        AuthApi.updateCurrentProfile({ displayName: this.state.displayName, photoURL: this.state.photoURL }).then(() => {
+        AuthApi.updateCurrentProfile({ displayName: this.state.displayName, photoURL: this.state.photoURL }).then(res => {
             if (this.props.onProfileUpdated) {
-                this.props.onProfileUpdated(AuthApi.getCurrentUser());
+                const user = res.data() as firebase.User;
+                this.props.onProfileUpdated(user);
             }
         });
     }

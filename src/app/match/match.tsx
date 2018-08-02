@@ -1,7 +1,7 @@
 import { Component, h } from "preact";
+import { IPlayer } from "../../../global/player";
 import { Translations } from "../../translations/translations";
 import { PlayersApi } from "../api/players.api";
-import { IPlayer } from "../global/player";
 import { MatchScore } from "./match-score";
 import { MatchTeam } from "./match-team";
 import { IMatchScoreState, IMatchState, IMatchTeamChange } from "./match.model";

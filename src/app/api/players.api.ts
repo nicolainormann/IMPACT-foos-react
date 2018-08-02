@@ -1,5 +1,5 @@
+import { IPlayer } from "../../../global/player";
 import { firestore } from "../firebase/firebase";
-import { IPlayer } from "../global/player";
 
 export class PlayersApi {
     private static _collection = firestore.collection("players");
@@ -8,14 +8,8 @@ export class PlayersApi {
         return this._collection.get().then(res => {
             return res.docs.map(player => {
                 const data = player.data() as IPlayer;
-                return { uid: player.id, ...data };
+                return { ...data, uid: player.id };
             });
         });
-    }
-
-    static setPlayer(player: IPlayer) {
-        const uid = player.uid;
-        delete player.uid;
-        return this._collection.doc(uid).set(player);
     }
 }

@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "webpack-dev-server"
+        "start": "webpack-dev-server",
+        "deploy": "firebase deploy"
     },
     "repository": "git+https://github.com/nicolainormann/IMPACT-foos.git",
     "author": "nicolainormann",

@@ -1,5 +1,5 @@
-import { ICallback } from "../global/callback";
-import { IPlayer } from "../global/player";
+import { ICallback } from "../../../global/callback";
+import { IPlayer } from "../../../global/player";
 
 //#region Match
 export interface IMatch {
